@@ -1,0 +1,165 @@
+/* TrueAlly Services Page — extends styles.css */
+
+/* ============ MINI HERO ============ */
+.mini-hero {
+  padding: 140px var(--pad) 70px;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.mini-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(50% 60% at 50% 0%, rgba(198,40,40,0.06), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(0,0,0,0.015) 39px 40px);
+  pointer-events: none;
+}
+.mini-hero-inner {
+  max-width: 880px; margin: 0 auto; position: relative;
+}
+.mini-hero h1 {
+  font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700;
+  font-size: clamp(38px, 6vw, 72px); letter-spacing: -0.025em; line-height: 1.04;
+  color: var(--ink);
+}
+.mini-hero h1 em {
+  font-style: italic; font-weight: 500; color: var(--accent);
+  font-family: 'Cabinet Grotesk', serif;
+}
+.mini-hero .lede {
+  margin-top: 22px; font-size: clamp(16px, 1.4vw, 19px);
+  color: var(--ink-muted); line-height: 1.55; max-width: 680px; margin-left: auto; margin-right: auto;
+}
+.mini-hero .crumb {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.mini-hero .crumb a { color: var(--ink-muted); }
+.mini-hero .crumb a:hover { color: var(--accent); }
+.mini-hero .crumb span.sep { opacity: 0.4; }
+
+/* ============ PILLARS (full scroll) ============ */
+.pillars-wrap { padding: 90px var(--pad); max-width: var(--maxw); margin: 0 auto; }
+.pillar {
+  display: grid; grid-template-columns: 320px 1fr; gap: 64px;
+  padding: 70px 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+.pillar:last-child { border-bottom: 1px solid var(--line); }
+.pillar-aside { position: sticky; top: 110px; align-self: start; }
+.pillar-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--accent); letter-spacing: 0.12em;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.pillar-num .line { width: 28px; height: 1px; background: var(--accent); }
+.pillar-icon {
+  width: 64px; height: 64px; border-radius: 16px;
+  background: var(--bg-2); display: grid; place-items: center;
+  color: var(--accent); margin-bottom: 22px;
+  border: 1px solid var(--line);
+  transition: transform .3s ease;
+}
+.pillar:hover .pillar-icon { transform: rotate(-4deg) scale(1.04); }
+.pillar h2 {
+  font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 42px); letter-spacing: -0.022em; line-height: 1.05;
+  color: var(--ink); margin-bottom: 14px;
+}
+.pillar-summary {
+  font-size: 16px; color: var(--ink-muted); line-height: 1.55;
+  border-left: 2px solid var(--accent); padding-left: 14px;
+}
+
+.pillar-points { display: flex; flex-direction: column; gap: 4px; }
+.pillar-point {
+  display: grid; grid-template-columns: 50px 1fr; gap: 18px;
+  padding: 24px 0; border-bottom: 1px solid var(--line);
+}
+.pillar-point:last-child { border-bottom: none; }
+.pillar-point .pt-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--ink-muted); padding-top: 4px;
+  border-right: 1px dashed var(--line); margin-right: 0;
+}
+.pillar-point .pt-body strong {
+  display: block; font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700;
+  font-size: 17px; color: var(--ink); letter-spacing: -0.01em;
+  line-height: 1.35; margin-bottom: 6px;
+}
+.pillar-point .pt-body p {
+  font-size: 15px; color: var(--ink-muted); line-height: 1.6;
+}
+.pillar-point:hover .pt-num { color: var(--accent); }
+
+@media (max-width: 880px) {
+  .pillar { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
+  .pillar-aside { position: static; }
+  .pillar-icon { width: 52px; height: 52px; }
+  .pillar-point { grid-template-columns: 38px 1fr; gap: 12px; padding: 20px 0; }
+}
+
+/* Connector tag between pillars */
+.pillar-connector {
+  display: flex; justify-content: center; margin: -32px 0;
+  position: relative; z-index: 2;
+}
+.pillar-connector span {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--ink-muted); padding: 8px 14px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 100px;
+}
+
+/* ============ Services preview on landing (3-pillar) ============ */
+.svc-preview {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.svc-prev-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 32px; display: flex; flex-direction: column; gap: 16px;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  position: relative; overflow: hidden; min-height: 280px;
+}
+.svc-prev-card:hover {
+  transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--ink-muted);
+}
+.svc-prev-card .num {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--accent); letter-spacing: 0.1em;
+}
+.svc-prev-card .ic {
+  width: 50px; height: 50px; border-radius: 12px;
+  background: var(--bg-2); display: grid; place-items: center; color: var(--accent);
+  border: 1px solid var(--line);
+  transition: transform .3s ease;
+}
+.svc-prev-card:hover .ic { transform: rotate(-6deg) scale(1.05); }
+.svc-prev-card h3 {
+  font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700;
+  font-size: 22px; letter-spacing: -0.018em; color: var(--ink);
+}
+.svc-prev-card p { color: var(--ink-muted); font-size: 14px; line-height: 1.55; flex: 1; }
+.svc-prev-card .arr {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line);
+}
+.svc-prev-card:hover .arr { color: var(--accent-hover); }
+
+.svc-explore-row {
+  display: flex; justify-content: center; margin-top: 32px;
+}
+.btn-explore {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 24px; border-radius: 100px;
+  background: var(--ink); color: #FFFFFF;
+  font-weight: 600; font-size: 15px;
+  transition: background .2s ease, transform .2s ease;
+}
+.btn-explore:hover { background: var(--accent); transform: translateY(-1px); }
+
+@media (max-width: 880px) { .svc-preview { grid-template-columns: 1fr; } }
