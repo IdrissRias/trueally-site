@@ -130,7 +130,7 @@ const ServicesHero = () => (
   <section className="mini-hero">
     <div className="mini-hero-inner">
       <div className="crumb hero-load hero-load-1">
-        <a href="TrueAlly Landing.html">Home</a>
+        <a href="index.html">Home</a>
         <span className="sep">/</span>
         <span>Services</span>
       </div>
@@ -159,7 +159,7 @@ const ServicesCTA = () => (
           No pitch, no pressure — just a conversation about your AR.
         </p>
         <div className="cta-buttons">
-          <a className="btn-primary glow" href="https://cal.com" target="_blank" rel="noreferrer">
+          <a className="btn-primary glow" href={window.BOOKING_URL} target="_blank" rel="noreferrer">
             Book a Discovery Call
             <span className="arrow"><Icon.Arrow size={12} /></span>
           </a>

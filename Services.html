@@ -14,15 +14,14 @@
 <body>
 
 <nav class="nav" id="nav">
-  <a href="TrueAlly Landing.html" class="brand">
+  <a href="index.html" class="brand">
     <div class="brand-name"><b>TrueAlly</b> <i>Solutions</i></div>
   </a>
   <div class="nav-links">
-    <a href="TrueAlly Landing.html#problem">The Problem</a>
+    <a href="index.html#problem">The Problem</a>
     <a href="Services.html" style="color: var(--ink); font-weight: 600;">Services</a>
-    <a href="TrueAlly Landing.html#how">How It Works</a>
-    <a href="TrueAlly Landing.html#industries">Industries</a>
-    <a href="TrueAlly Landing.html#why">Why TrueAlly</a>
+    <a href="index.html#how">How It Works</a>
+    <a href="index.html#why">Why TrueAlly</a>
   </div>
   <a href="#contact" class="nav-cta"><span class="dot"></span>Book a Call</a>
   <button class="hamburger" aria-label="menu"><span></span></button>
@@ -42,6 +41,22 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 20) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 }, { passive: true });
+
+const hamburger = document.querySelector('.hamburger');
+hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach((a) => {
+  a.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+if (window.location.hash) {
+  let tries = 0;
+  const scrollToHash = () => {
+    const el = document.querySelector(window.location.hash);
+    if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+    else if (tries++ < 40) setTimeout(scrollToHash, 100);
+  };
+  setTimeout(scrollToHash, 100);
+}
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((e) => {

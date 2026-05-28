@@ -19,6 +19,7 @@
     <div class="brand-name"><b>TrueAlly</b> <i>Solutions</i></div>
   </a>
   <div class="nav-links">
+    <a href="#problem">The Problem</a>
     <a href="Services.html">Services</a>
     <a href="#how">How It Works</a>
     <a href="#why">Why TrueAlly</a>
@@ -29,19 +30,16 @@
 
 <main id="root"></main>
 
-<div id="tweaks-root"></div>
-
 <script type="text/babel" src="icons.jsx"></script>
 <script type="text/babel" src="hero.jsx"></script>
 <script type="text/babel" src="problem-services-how.jsx"></script>
 <script type="text/babel" src="sections-bottom.jsx"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="tweaks-app.jsx"></script>
 
 <script type="text/babel">
 const App = () => (
   <>
     <Hero />
+    <Problems />
     <Services />
     <HowItWorks />
     <Differentiators />
@@ -52,19 +50,30 @@ const App = () => (
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
-// Tweaks app mounts in its own root
-setTimeout(() => {
-  if (window.TweaksApp && document.getElementById('tweaks-root')) {
-    ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
-  }
-}, 50);
-
 // Sticky nav shrink on scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 }, { passive: true });
+
+// Mobile menu toggle
+const hamburger = document.querySelector('.hamburger');
+hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach((a) => {
+  a.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+// Re-resolve hash after React mounts (sections render async)
+if (window.location.hash) {
+  let tries = 0;
+  const scrollToHash = () => {
+    const el = document.querySelector(window.location.hash);
+    if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+    else if (tries++ < 40) setTimeout(scrollToHash, 100);
+  };
+  setTimeout(scrollToHash, 100);
+}
 
 // Intersection-based reveal
 const revealObserver = new IntersectionObserver((entries) => {

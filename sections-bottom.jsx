@@ -50,7 +50,7 @@ const Differentiators = () => {
     <div className="section" id="why">
       <div className="section-head">
         <div>
-          <div className="section-num"><span className="line"></span>03 — WHY TRUEALLY</div>
+          <div className="section-num"><span className="line"></span>04 — WHY TRUEALLY</div>
           <h2 className="section-title reveal">Not a call center. <em>Not an agency.</em></h2>
         </div>
         <p className="section-lede reveal reveal-1">
@@ -72,9 +72,12 @@ const Differentiators = () => {
   );
 };
 
-const Industries = () => null;
+const BOOKING_URL = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FU8blGENKUCZBUMZW6SgfopMRm-Citrgh4AD8l3wZS4V-WC0ULyA9DR7fLhgn1cP-Rc6CUfHG";
+const LINKEDIN_URL = "https://www.linkedin.com/company/trueally-solutions/";
 
-const SocialProof = () => null;
+const onLandingPage = () =>
+  typeof window === 'undefined' ||
+  !window.location.pathname.toLowerCase().endsWith('services.html');
 
 const CTA = () => (
   <section id="contact">
@@ -90,7 +93,7 @@ const CTA = () => (
           A 30-minute discovery call is the only way to know if we're a fit.
         </p>
         <div className="cta-buttons">
-          <a className="btn-primary glow" href="https://cal.com" target="_blank" rel="noreferrer">
+          <a className="btn-primary glow" href={BOOKING_URL} target="_blank" rel="noreferrer">
             Book a Discovery Call
             <span className="arrow"><Icon.Arrow size={12} /></span>
           </a>
@@ -107,47 +110,51 @@ const CTA = () => (
   </section>
 );
 
-const Footer = () => (
-  <>
-    <footer className="footer">
-      <div className="footer-brand">
-        <div className="brand">
-          <div className="brand-name"><b>TrueAlly</b> <i>Solutions</i></div>
+const Footer = () => {
+  const isLanding = onLandingPage();
+  const landingAnchor = (hash) => (isLanding ? hash : 'index.html' + hash);
+  return (
+    <>
+      <footer className="footer">
+        <div className="footer-brand">
+          <div className="brand">
+            <div className="brand-name"><b>TrueAlly</b> <i>Solutions</i></div>
+          </div>
+          <p>Outsourced B2B accounts receivable management. We make sure your customers pay you on time.</p>
         </div>
-        <p>Outsourced B2B accounts receivable management. We make sure your customers pay you on time.</p>
+        <div>
+          <h6>Company</h6>
+          <ul>
+            <li><a href={landingAnchor('#problem')}>The Problem</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href={landingAnchor('#how')}>How It Works</a></li>
+            <li><a href={landingAnchor('#why')}>Why TrueAlly</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Contact</h6>
+          <ul>
+            <li><a href="tel:+12134718393">(213) 471-8393</a></li>
+            <li><a href="mailto:contact@trueallysolutions.com">contact@<br />trueallysolutions.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Connect</h6>
+          <ul>
+            <li><a href={LINKEDIN_URL} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon.LinkedIn size={14} /> LinkedIn</a></li>
+            <li><a href="#contact">Book a call</a></li>
+          </ul>
+        </div>
+      </footer>
+      <div className="footer-bottom">
+        <span>© 2026 TrueAlly Solutions. All rights reserved.</span>
+        <span>Powered by El Idrissi Limited (UK)</span>
       </div>
-      <div>
-        <h6>Company</h6>
-        <ul>
-          <li><a href="Services.html">Services</a></li>
-          <li><a href="#how">How It Works</a></li>
-          <li><a href="#why">Why TrueAlly</a></li>
-        </ul>
-      </div>
-      <div>
-        <h6>Contact</h6>
-        <ul>
-          <li><a href="tel:+12134718393">(213) 471-8393</a></li>
-          <li><a href="mailto:contact@trueallysolutions.com">contact@<br />trueallysolutions.com</a></li>
-        </ul>
-      </div>
-      <div>
-        <h6>Connect</h6>
-        <ul>
-          <li><a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon.LinkedIn size={14} /> LinkedIn</a></li>
-          <li><a href="#contact">Book a call</a></li>
-        </ul>
-      </div>
-    </footer>
-    <div className="footer-bottom">
-      <span>© 2026 TrueAlly Solutions. All rights reserved.</span>
-      <span>Powered by El Idrissi Limited (UK)</span>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 window.Differentiators = Differentiators;
-window.Industries = Industries;
-window.SocialProof = SocialProof;
 window.CTA = CTA;
 window.Footer = Footer;
+window.BOOKING_URL = BOOKING_URL;

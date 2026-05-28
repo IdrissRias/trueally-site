@@ -79,7 +79,7 @@ const Services = () => {
     <div className="section" id="services">
       <div className="section-head">
         <div>
-          <div className="section-num"><span className="line"></span>01 — WHAT WE DO</div>
+          <div className="section-num"><span className="line"></span>02 — WHAT WE DO</div>
           <h2 className="section-title reveal">Three pillars. <em>One outcome.</em></h2>
         </div>
         <p className="section-lede reveal reveal-1">
@@ -122,7 +122,7 @@ const HowItWorks = () => {
         <div className="how-inner">
           <div className="section-head">
             <div>
-              <div className="section-num"><span className="line"></span>02 — HOW IT WORKS</div>
+              <div className="section-num"><span className="line"></span>03 — HOW IT WORKS</div>
               <h2 className="section-title reveal">Five steps. <em>Zero disruption.</em></h2>
             </div>
             <p className="section-lede reveal reveal-1">
