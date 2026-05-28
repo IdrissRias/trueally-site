@@ -97,8 +97,8 @@ const CTA = () => (
             Book a Discovery Call
             <span className="arrow"><Icon.Arrow size={12} /></span>
           </a>
-          <a className="btn-ghost-light" href="tel:+12134718393">
-            <Icon.Phone size={14} /> (213) 471-8393
+          <a className="btn-ghost-light" href="tel:+13128208302">
+            <Icon.Phone size={14} /> (312) 820-8302
           </a>
         </div>
         <div className="cta-meta">
@@ -134,7 +134,7 @@ const Footer = () => {
         <div>
           <h6>Contact</h6>
           <ul>
-            <li><a href="tel:+12134718393">(213) 471-8393</a></li>
+            <li><a href="tel:+13128208302">(312) 820-8302</a></li>
             <li><a href="mailto:contact@trueallysolutions.com">contact@<br />trueallysolutions.com</a></li>
           </ul>
         </div>

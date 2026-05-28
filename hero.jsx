@@ -39,8 +39,8 @@ const Hero = () => {
             </div>
             <div className="vr"></div>
             <div>
-              <a href="tel:+12134718393" className="hero-phone">
-                <Icon.Phone size={13} /> (213) 471-8393
+              <a href="tel:+13128208302" className="hero-phone">
+                <Icon.Phone size={13} /> (312) 820-8302
               </a>
               <div className="stat-label" style={{ marginTop: 4 }}>Mon–Fri · 6am–6pm PT</div>
             </div>

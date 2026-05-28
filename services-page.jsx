@@ -168,7 +168,7 @@ const ServicesCTA = () => (
           </a>
         </div>
         <div className="cta-meta">
-          <a href="tel:+12134718393"><Icon.Phone size={12} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} />(213) 471-8393</a>
+          <a href="tel:+13128208302"><Icon.Phone size={12} style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} />(312) 820-8302</a>
           <a href="mailto:contact@trueallysolutions.com">contact@trueallysolutions.com</a>
           <span>Mon–Fri · 6am–6pm PT</span>
         </div>
