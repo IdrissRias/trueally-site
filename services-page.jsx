@@ -135,7 +135,7 @@ const ServicesHero = () => (
         <span>Services</span>
       </div>
       <h1 className="hero-load hero-load-2">
-        Three pillars. <em>One outcome:</em><br />you get paid.
+        Three pillars. <em>One outcome:</em>{' '}<br />you get paid.
       </h1>
       <p className="lede hero-load hero-load-3">
         We don't just chase invoices. We manage your entire receivables function — the people,

@@ -129,6 +129,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 880px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .nav-cta { display: none; }
   .nav.open .nav-links {
     display: flex;
     flex-direction: column;
@@ -144,6 +145,29 @@ img { max-width: 100%; display: block; }
     border-bottom: 1px solid var(--line);
   }
   .nav.open .nav-links a { font-size: 16px; }
+  .nav.open::after {
+    content: "";
+    position: absolute; top: 100%; left: 0; right: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Hero: drop the decorative dashboard + callouts on small screens */
+  .hero { padding: 110px var(--pad) 60px; }
+  .hero-grid { gap: 32px; }
+  .hero-visual { display: none; }
+  .callout { display: none; }
+
+  /* Hero stat bar: clean stack, no floating vertical rules */
+  .social-bar { gap: 22px; margin-top: 44px; padding-top: 24px; }
+  .social-bar .vr { display: none; }
+  .social-bar .stat-num { font-size: 32px; }
+
+  /* Hero CTAs: stack full-width so taps are easy */
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 28px; }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-ghost { justify-content: center; width: 100%; }
 }
 
 /* ================== HERO ================== */
