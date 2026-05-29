@@ -152,24 +152,6 @@ img { max-width: 100%; display: block; }
   }
 }
 
-@media (max-width: 640px) {
-  /* Hero: drop the decorative dashboard + callouts on small screens */
-  .hero { padding: 110px var(--pad) 60px; }
-  .hero-grid { gap: 32px; }
-  .hero-visual { display: none; }
-  .callout { display: none; }
-
-  /* Hero stat bar: clean stack, no floating vertical rules */
-  .social-bar { gap: 22px; margin-top: 44px; padding-top: 24px; }
-  .social-bar .vr { display: none; }
-  .social-bar .stat-num { font-size: 32px; }
-
-  /* Hero CTAs: stack full-width so taps are easy */
-  .hero-ctas { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 28px; }
-  .hero-ctas .btn-primary,
-  .hero-ctas .btn-ghost { justify-content: center; width: 100%; }
-}
-
 /* ================== HERO ================== */
 .hero {
   padding: 140px var(--pad) 80px;
@@ -908,3 +890,50 @@ section { position: relative; }
   50% { transform: scaleY(1); transform-origin: top; }
 }
 @media (max-width: 980px) { .scroll-hint { display: none; } }
+
+/* ================== MOBILE TUNING (≤640px) ================== */
+/* Keep this block at the end so it overrides earlier rules in the cascade. */
+@media (max-width: 640px) {
+  /* Hero: drop the decorative dashboard + callouts, tighten padding */
+  .hero { padding: 96px var(--pad) 40px; }
+  .hero-grid { gap: 32px; }
+  .hero-visual { display: none; }
+  .callout { display: none; }
+  .hero h1 { font-size: 38px; margin: 18px 0 20px; line-height: 1.05; }
+  .hero-sub { font-size: 16px; line-height: 1.55; }
+  .eyebrow { font-size: 11px; padding: 6px 12px 6px 9px; }
+
+  /* Hero stat bar: clean stack, no floating vertical rules */
+  .social-bar { gap: 20px; margin-top: 32px; padding-top: 20px; }
+  .social-bar .vr { display: none; }
+  .social-bar .stat-num { font-size: 30px; }
+
+  /* Hero CTAs: stack full-width so taps are easy */
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 24px; }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-ghost { justify-content: center; width: 100%; }
+
+  /* Sections: tighten vertical rhythm to roughly the 8px grid (64/56) */
+  .section { padding: 64px var(--pad); }
+  .section-tight { padding: 48px var(--pad); }
+  .section-head { margin-bottom: 28px; gap: 16px; }
+  .section-title { font-size: 30px; line-height: 1.08; }
+  .section-lede { font-size: 16px; }
+
+  /* Problem cards: less padding, no forced min-height */
+  .problem-card { padding: 22px; min-height: 0; gap: 10px; }
+  .problem-card h3 { font-size: 19px; }
+  .problem-card p { font-size: 14.5px; }
+  .bento { gap: 14px; }
+
+  /* How It Works (dark card): tighter padding + smaller corners on phone */
+  .how { padding: 56px 20px; margin: 0 var(--pad); border-radius: 18px; }
+
+  /* CTA card: tighter padding, full-width buttons */
+  .cta-section { padding: 56px 20px; margin: 56px var(--pad); border-radius: 18px; }
+  .cta-section h2 { font-size: 32px; line-height: 1.1; margin: 16px 0 14px; }
+  .cta-section .sub { font-size: 16px; margin-bottom: 24px; }
+  .cta-buttons { flex-direction: column; align-items: stretch; gap: 10px; }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-ghost-light { justify-content: center; width: 100%; }
+}

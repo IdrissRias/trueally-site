@@ -106,6 +106,17 @@
 @media (max-width: 640px) {
   /* Let the hero title flow naturally instead of breaking awkwardly */
   .mini-hero h1 br { display: none; }
+  .mini-hero { padding: 96px var(--pad) 48px; }
+  .mini-hero h1 { font-size: 34px; line-height: 1.08; }
+  .mini-hero .lede { font-size: 16px; margin-top: 16px; }
+  .mini-hero .crumb { margin-bottom: 16px; }
+
+  /* Pillars wrap + pillar block: shorter vertical rhythm */
+  .pillars-wrap { padding: 48px var(--pad); }
+  .pillar { padding: 36px 0; gap: 24px; }
+  .pillar h2 { font-size: 28px; line-height: 1.1; }
+  .pillar-summary { font-size: 15px; }
+  .pillar-point { padding: 16px 0; }
 }
 
 /* Connector tag between pillars */
